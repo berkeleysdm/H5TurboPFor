@@ -1,5 +1,17 @@
 # H5TurboPFor
 
+Please see the Copyright and the License at the end of this doc
+
+Installation guide
+
+The H5H5TurboPFor depends on HDF5 and TurboPFor.
+- Install HDF5 
+  
+- Install TurboPFor
+- Install H5H5TurboPFor
+
+Usage:
+
 
 ****************************
 
