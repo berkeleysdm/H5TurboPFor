@@ -6,7 +6,20 @@ Installation guide
 
 The H5H5TurboPFor depends on HDF5 and TurboPFor.
 - Install HDF5 
-  
+  Please use 1.10(e.g. hdf5-1.10.7  https://www.hdfgroup.org/packages/hdf5-1107-source/)
+  The HDf5 1.12 has some issue with plug-in support.
+  After download, you can use the below steps to install it
+  ```console
+  > tar zxvf hdf5-1.10.7.tar.gz
+  > ./autogen.sh
+  > ./configure --prefix=$PWD/build --enable-parallel
+  > make ; make install
+  ```
+  If on NERSC machine or machine with HDF5 as module
+  Just use the pre-compiled HDF5 
+  ```console
+  > module load cray-hdf5-parallel/1.10.5.2
+  ```
 - Install TurboPFor
 - Install H5H5TurboPFor
 
