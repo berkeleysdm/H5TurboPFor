@@ -2,7 +2,7 @@
 
 Please see the Copyright and the License at the end of this doc
 
-Installation guide
+A Simple Installation Guide
 
 The H5H5TurboPFor depends on HDF5 and TurboPFor.
 - Install HDF5 
@@ -21,8 +21,45 @@ The H5H5TurboPFor depends on HDF5 and TurboPFor.
   > module load cray-hdf5-parallel/1.10.5.2
   ```
 - Install TurboPFor
-- Install H5H5TurboPFor
+   
+  ```console
+  > git clone https://github.com/powturbo/TurboPFor-Integer-Compression.git
+  > cd TurboPFor-Integer-Compression
+  > "edit the makefile and add below lines to create an installation in $PWD/build"
+  
+      INSTALL_PATH = $(PWD)/build
 
+      ...
+      install: libic.a
+            mkdir -p $(INSTALL_PATH)/lib
+            mkdir -p $(INSTALL_PATH)/include
+            cp ./libic.a $(INSTALL_PATH)/lib/
+            cp ./*.h   $(INSTALL_PATH)/include/
+  
+  > make
+  > make install 
+  ```
+   
+- Install H5H5TurboPFor
+  
+  ```console
+  > git clone https://github.com/berkeleysdm/H5TurboPFor.git
+  > cd H5TurboPFor
+  > "edit the CMakeLists.txt files for proper installtaion of TurboPFor"
+   
+    set(turbopfor_ROOT_DIR /Users/dbin/work/soft/TurboPFor-Integer-Compression-New/build) 
+  
+    Note: the defualt installation directory is set as $PWD/build.
+    You can adjust it if you want
+    
+    set(PLUGIN_INSTALL_PATH "./build" CACHE PATH "Where to install the dynamic HDF5-plugin")
+  
+  > cmake .
+  > make
+  > make install
+
+  ```
+  
 Usage:
 
 
